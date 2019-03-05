@@ -64,6 +64,10 @@
     <Compile Include="Builders\SemesterBuilder.cs" />
     <Compile Include="Builders\StudentBuilder.cs" />
     <Compile Include="Builders\TeacherBuilder.cs" />
+    <Compile Include="Migrations\201903051126398_AddDanvla.cs" />
+    <Compile Include="Migrations\201903051126398_AddDanvla.Designer.cs">
+      <DependentUpon>201903051126398_AddDanvla.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -76,6 +80,11 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201903051126398_AddDanvla.resx">
+      <DependentUpon>201903051126398_AddDanvla.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

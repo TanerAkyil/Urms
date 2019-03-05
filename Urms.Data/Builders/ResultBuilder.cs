@@ -12,7 +12,7 @@ namespace Urms.Data.Builders
     {
         public ResultBuilder(EntityTypeConfiguration<Result> entity)
         {
-            entity.HasKey(e => e.ResultId);
+            
             entity.Property(e => e.Grade).IsRequired().HasMaxLength(200);
             entity.HasOptional(e => e.Student).WithMany(c => c.Results).HasForeignKey(p => p.StudentId);
             entity.HasOptional(e => e.Course).WithMany(c => c.Results).HasForeignKey(p => p.CourseId);

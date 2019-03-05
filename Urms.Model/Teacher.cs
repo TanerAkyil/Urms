@@ -11,8 +11,7 @@ namespace Urms.Model
     public class Teacher:BaseEntity
     {
         
-        [Display(Name = "Akademisyen Adı")]
-        public int TeacherId { get; set; }
+        
 
         [Display(Name = "Akademisyen Adı")]
         [Required(ErrorMessage = "Lütfen akademisyen adını giriniz")]
@@ -32,12 +31,12 @@ namespace Urms.Model
         public string ContactNo { get; set; }
 
         [Display(Name = "Designation")]
-        [Required(ErrorMessage = "Please select designation")]
-        public int DesignationId { get; set; }
+        
+        public Guid? DesignationId { get; set; }
 
         [Display(Name = "Department")]
-        [Required(ErrorMessage = "Please select department")]
-        public int DeptId { get; set; }
+        
+        public Guid? DeptId { get; set; }
 
         [Range(0.5, double.MaxValue, ErrorMessage = "Creadit can not be less than 0.5")]
         [Display(Name = "Creadit To Be Taken")]

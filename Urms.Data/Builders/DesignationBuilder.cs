@@ -12,7 +12,7 @@ namespace Urms.Data.Builders
     {
         public DesignationBuilder(EntityTypeConfiguration<Designation> entity)
         {
-            entity.HasKey(e => e.DesignationId);
+            
             entity.Property(e => e.DesignationName).IsRequired().HasMaxLength(200);
 
         }

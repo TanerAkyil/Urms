@@ -10,8 +10,7 @@ namespace Urms.Model
     public class Student:BaseEntity
     {
         
-        [Display(Name = "Öğrenci No")]
-        public int StudentId { get; set; }
+       
 
         [Required(ErrorMessage = "Öğrenci adı gerekli")]
         [Display(Name = "Öğrenci  Adı")]
@@ -36,8 +35,8 @@ namespace Urms.Model
         public string Address { get; set; }
 
         [Display(Name = "Bölüm")]
-        [Required(ErrorMessage = "Lütfen bölümü seçiniz")]
-        public int DeptId { get; set; }
+        
+        public Guid? DeptId { get; set; }
 
         [Display(Name = "Kayıt Numarası")]
         //[Required]

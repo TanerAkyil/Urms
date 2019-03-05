@@ -10,8 +10,7 @@ namespace Urms.Model
   public  class Designation:BaseEntity
     {
        
-        [Display(Name = "Unvan")]
-        public int DesignationId { get; set; }
+        
 
         [Display(Name = "Unvan Adı")]
         public string DesignationName { get; set; }

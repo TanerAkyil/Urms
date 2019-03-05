@@ -10,15 +10,15 @@ namespace Urms.Model
    public class Result:BaseEntity
     {
         
-        public int ResultId { get; set; }
+        
 
-        [Required(ErrorMessage = "Lütfen Öğrenci Seçiniz")]
+        
         [Display(Name = "Ögrenci Seçimi")]
-        public int StudentId { get; set; }
+        public Guid? StudentId { get; set; }
 
         [Display(Name = "Ders Seçimi")]
-        [Required(ErrorMessage = "Lütfen Ders Seçiniz")]
-        public int CourseId { get; set; }
+        
+        public Guid? CourseId { get; set; }
 
 
         [Display(Name = "Not Seçimi")]

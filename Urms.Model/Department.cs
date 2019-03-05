@@ -9,7 +9,7 @@ namespace Urms.Model
    public  class Department:BaseEntity
     {
         
-        public int DeptId { get; set; }
+        
 
         public string DeptCode { get; set; }
 

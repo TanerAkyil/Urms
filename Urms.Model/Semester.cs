@@ -10,8 +10,7 @@ namespace Urms.Model
     public class Semester:BaseEntity
     {
         
-        [Display(Name = "Dönem No")]
-        public int SemesterId { get; set; }
+       
 
         [Display(Name = "Dönem Adı")]
         public string SemesterName { get; set; }

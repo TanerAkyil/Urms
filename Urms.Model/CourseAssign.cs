@@ -9,16 +9,15 @@ namespace Urms.Model
 {
     public class CourseAssign:BaseEntity
     {
-        [Required]
-        public int CourseAssignId { get; set; }
-        [Required]
+        
+        
         [Display(Name = "Department")]
-        public int DepartmentId { get; set; }
-        [Required]
+        public Guid? DepartmentId { get; set; }
+        
         [Display(Name = "Teacher")]
-        public int TeacherId { get; set; }
-        [Required]
+        public Guid? TeacherId { get; set; }
+        
         [Display(Name = "Course Code")]
-        public int CourseId { get; set; }
+        public Guid? CourseId { get; set; }
     }
 }

@@ -12,7 +12,7 @@ namespace Urms.Data.Builders
     {
         public StudentBuilder(EntityTypeConfiguration<Student> entity)
         {
-            entity.HasKey(e => e.StudentId);
+            
             entity.Property(e => e.StudentName).IsRequired().HasMaxLength(200);
             entity.Property(e => e.Email).IsRequired().HasMaxLength(200);
             entity.Property(e => e.ContactNo).IsRequired().HasMaxLength(200);

@@ -10,12 +10,12 @@ namespace Urms.Model
     public class EnrollCourse:BaseEntity
     {
        
-        public int EnrollId { get; set; }
+       
 
         [Display(Name = "ogrenci kayıt no")]
-        public int StudentId { get; set; }
+        public Guid? StudentId { get; set; }
 
-        public int CourseId { get; set; }
+        public Guid? CourseId { get; set; }
 
         [DataType(DataType.Date, ErrorMessage = "Gecersiz tarih formatı")]
         public DateTime EnrollDate { get; set; }

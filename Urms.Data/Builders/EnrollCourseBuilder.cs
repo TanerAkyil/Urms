@@ -12,7 +12,7 @@ namespace Urms.Data.Builders
     {
         public EnrollCourseBuilder(EntityTypeConfiguration<EnrollCourse> entity)
         {
-            entity.HasKey(e => e.EnrollId);
+           
         }
     }
 }

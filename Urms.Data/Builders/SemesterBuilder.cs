@@ -12,7 +12,7 @@ namespace Urms.Data.Builders
     {
         public SemesterBuilder(EntityTypeConfiguration<Semester> entity)
         {
-            entity.HasKey(e => e.SemesterId);
+            
             entity.Property(e => e.SemesterName).IsRequired().HasMaxLength(100);
         }
     }

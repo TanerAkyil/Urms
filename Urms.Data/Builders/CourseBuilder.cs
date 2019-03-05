@@ -12,7 +12,7 @@ namespace Urms.Data.Builders
     {
         public CourseBuilder(EntityTypeConfiguration<Course> entity)
         {
-            entity.HasKey(e => e.CourseId);
+           
             entity.Property(e => e.CourseName).IsRequired().HasMaxLength(100);
             entity.Property(e => e.CourseCode).IsRequired().HasMaxLength(100);
             entity.Property(e => e.Credit).IsRequired();
