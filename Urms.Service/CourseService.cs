@@ -75,6 +75,10 @@ namespace Urms.Service
             var course = courseRepository.Find(entity.Id);
             course.CourseCode = entity.CourseCode;
             course.CourseName = entity.CourseName;
+            course.Credit = entity.Credit;
+            course.SemesterId = entity.SemesterId;
+            course.DeptId = entity.DeptId;
+            course.TeacherId = entity.TeacherId;
             course.Description = entity.Description;
             courseRepository.Update(course);
             unitOfWork.SaveChanges();
