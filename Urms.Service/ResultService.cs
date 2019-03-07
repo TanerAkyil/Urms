@@ -16,16 +16,17 @@ namespace Urms.Service
         void Delete(Guid id);
         Result Find(Guid id);
         IEnumerable<Result> GetAll();
-      
+     
     }
     public class ResultService : IResultService
     {
         private readonly IRepository<Result> resultRepository;
         private readonly IUnitOfWork unitOfWork;
-        public ResultService(IUnitOfWork unitOfWork, IRepository<Result> categoryRepository)
+
+        public ResultService(IUnitOfWork unitOfWork, IRepository<Result> resultRepository)
         {
             this.unitOfWork = unitOfWork;
-            this.resultRepository = categoryRepository;
+            this.resultRepository = resultRepository;
         }
         public void Delete(Result entity)
         {
@@ -35,10 +36,10 @@ namespace Urms.Service
 
         public void Delete(Guid id)
         {
-            var course = resultRepository.Find(id);
-            if (course != null)
+            var result = resultRepository.Find(id);
+            if (result != null)
             {
-                this.Delete(course);
+                this.Delete(result);
             }
         }
 
@@ -50,9 +51,10 @@ namespace Urms.Service
         public IEnumerable<Result> GetAll()
         {
             return resultRepository.GetAll();
+
         }
 
-     
+       
 
         public void Insert(Result entity)
         {
@@ -60,7 +62,7 @@ namespace Urms.Service
             unitOfWork.SaveChanges();
         }
 
-    
+        
 
         public void Update(Result entity)
         {
@@ -68,7 +70,6 @@ namespace Urms.Service
             result.StudentId = entity.StudentId;
             result.CourseId = entity.CourseId;
             result.Grade = entity.Grade;
-            
             resultRepository.Update(result);
             unitOfWork.SaveChanges();
         }

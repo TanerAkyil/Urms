@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Urms.Data;
 using Urms.Model;
 
 namespace Urms.Service
@@ -18,46 +19,66 @@ namespace Urms.Service
         IEnumerable<Semester> GetAllByName(string name);
         IEnumerable<Semester> Search(string name);
     }
+
     public class SemesterService : ISemesterService
     {
+        private readonly IRepository<Semester> semesterRepository;
+
+        private readonly IUnitOfWork unitOfWork;
+
+        public SemesterService(IUnitOfWork unitOfWork, IRepository<Semester> semesterRepository)
+        {
+            this.unitOfWork = unitOfWork;
+            this.semesterRepository = semesterRepository;
+        }
         public void Delete(Semester entity)
         {
-            throw new NotImplementedException();
+            semesterRepository.Delete(entity);
+            unitOfWork.SaveChanges();
         }
 
         public void Delete(Guid id)
         {
-            throw new NotImplementedException();
+            var semester = semesterRepository.Find(id);
+            if (semester != null)
+            {
+                this.Delete(semester);
+            }
         }
 
         public Semester Find(Guid id)
         {
-            throw new NotImplementedException();
+            return semesterRepository.Find(id);
         }
 
         public IEnumerable<Semester> GetAll()
         {
-            throw new NotImplementedException();
+            return semesterRepository.GetAll();
         }
 
         public IEnumerable<Semester> GetAllByName(string name)
         {
-            throw new NotImplementedException();
+            return semesterRepository.GetAll(w => w.SemesterName.Contains(name));
         }
 
         public void Insert(Semester entity)
         {
-            throw new NotImplementedException();
+            semesterRepository.Insert(entity);
+            unitOfWork.SaveChanges();
         }
 
         public IEnumerable<Semester> Search(string name)
         {
-            throw new NotImplementedException();
+            return semesterRepository.GetAll(e => e.SemesterName.Contains(name));
         }
 
         public void Update(Semester entity)
         {
-            throw new NotImplementedException();
+            var semester = semesterRepository.Find(entity.Id);
+            semester.SemesterName = entity.SemesterName;
+
+            semesterRepository.Update(semester);
+            unitOfWork.SaveChanges();
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Urms.Data;
 using Urms.Model;
 
 namespace Urms.Service
@@ -18,46 +19,75 @@ namespace Urms.Service
         IEnumerable<Teacher> GetAllByName(string name);
         IEnumerable<Teacher> Search(string name);
     }
-    class TeacherService : ITeacherService
+    public class TeacherService : ITeacherService
     {
+        private readonly IRepository<Teacher> teacherRepository;
+        private readonly IUnitOfWork unitOfWork;
+
+        public TeacherService(IUnitOfWork unitOfWork, IRepository<Teacher> teacherRepository)
+        {
+            this.unitOfWork = unitOfWork;
+            this.teacherRepository = teacherRepository;
+
+        }
         public void Delete(Teacher entity)
         {
-            throw new NotImplementedException();
+            teacherRepository.Delete(entity);
+            unitOfWork.SaveChanges();
+
+
         }
 
         public void Delete(Guid id)
         {
-            throw new NotImplementedException();
+            var teacher = teacherRepository.Find(id);
+            if (teacher != null)
+            {
+                this.Delete(teacher);
+            }
         }
 
         public Teacher Find(Guid id)
         {
-            throw new NotImplementedException();
+            return teacherRepository.Find(id);
         }
 
         public IEnumerable<Teacher> GetAll()
         {
-            throw new NotImplementedException();
+            return teacherRepository.GetAll();
         }
 
         public IEnumerable<Teacher> GetAllByName(string name)
         {
-            throw new NotImplementedException();
+            return teacherRepository.GetAll(w => w.TeacherName.Contains(name));
         }
 
         public void Insert(Teacher entity)
         {
-            throw new NotImplementedException();
+            teacherRepository.Insert(entity);
+            unitOfWork.SaveChanges();
         }
 
         public IEnumerable<Teacher> Search(string name)
         {
-            throw new NotImplementedException();
+            return teacherRepository.GetAll(e => e.TeacherName.Contains(name));
         }
 
         public void Update(Teacher entity)
         {
-            throw new NotImplementedException();
+            var  teacher = teacherRepository.Find(entity.Id);
+            teacher.TeacherName = entity.TeacherName;
+            teacher.Address = entity.Address;
+            teacher.Email = entity.Email;
+            teacher.ContactNo = entity.ContactNo;
+            teacher.DesignationId = entity.DesignationId;
+            teacher.DeptId = entity.DeptId;
+            teacher.DeptId = entity.DeptId;
+            teacher.CreaditToBeTaken = entity.CreaditToBeTaken;
+            teacher.RemaingCreadit = entity.RemaingCreadit;
+            
+            teacherRepository.Update(teacher);
+            unitOfWork.SaveChanges();
         }
     }
 }
