@@ -8,7 +8,7 @@ using Urms.Model;
 
 namespace Urms.Service
 {
-    public interface ICourseAssignAssignService
+    public interface ICourseAssignService
     {
         void Insert(CourseAssign entity);
         void Update(CourseAssign entity);
@@ -18,7 +18,7 @@ namespace Urms.Service
         IEnumerable<CourseAssign> GetAll();
      
     }
-    public class CourseAssignService : ICourseAssignAssignService
+    public class CourseAssignService : ICourseAssignService
     {
         private readonly IRepository<CourseAssign> CourseAssignRepository;
         private readonly IUnitOfWork unitOfWork;
