@@ -41,8 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="CourseAssignService.cs" />
+    <Compile Include="CourseService.cs" />
+    <Compile Include="DepartmentService.cs" />
+    <Compile Include="DesignationService.cs" />
+    <Compile Include="EnrollCourseService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResultService.cs" />
+    <Compile Include="SemesterService.cs" />
+    <Compile Include="StudentService.cs" />
+    <Compile Include="TeacherService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Urms.Data\Urms.Data.csproj">
