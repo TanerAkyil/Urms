@@ -2,6 +2,7 @@
 using Autofac.Integration.Mvc;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -65,8 +66,8 @@ namespace Urms.Admin
             builder.RegisterType<ApplicationSignInManager>().AsSelf().InstancePerRequest();
             builder.Register(c => new UserStore<ApplicationUser>(c.Resolve<ApplicationDbContext>())).AsImplementedInterfaces().InstancePerRequest();
             builder.Register(c => new RoleStore<IdentityRole>(c.Resolve<ApplicationDbContext>())).InstancePerRequest();
-           /* builder.RegisterType<ApplicationRoleManager>().AsSelf().InstancePerRequest();
-            builder.Register(c => HttpContext.Current.GetOwinContext().Authentication).As<IAuthenticationManager>();*/
+           /* builder.RegisterType<ApplicationRoleManager>().AsSelf().InstancePerRequest();*/
+            builder.Register(c => HttpContext.Current.GetOwinContext().Authentication).As<IAuthenticationManager>();
             builder.Register(c => new IdentityFactoryOptions<ApplicationUserManager>
             {
                 DataProtectionProvider = new Microsoft.Owin.Security.DataProtection.DpapiDataProtectionProvider("Application​")
