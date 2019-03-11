@@ -36,57 +36,58 @@
             <div id="wrapper">
                 <div id="login" class="animate form">
                     <section class="login_content">
-                  
 
-                        <form>
-                            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                            {
-                                @Html.AntiForgeryToken()
 
-                                <h1>Üye Girişi</h1>
-                                <div class="form-group">
-                                    @Html.LabelFor(m => m.Email, "Eposta", new { @class = "col-md-2 control-label" })
-                                    <div class="col-md-12">
-                                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                                    </div>
+
+                        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <h1>Üye Girişi</h1>
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Email, "Eposta", new { @class = "col-md-2 control-label" })
+                                <div class="col-md-12">
+                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                                 </div>
-                                <div class="form-group">
-                                    @Html.LabelFor(m => m.Password, "Şifre", new { @class = "col-md-2 control-label" })
-                                    <div class="col-md-12">
-                                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-                                    </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Password, "Şifre", new { @class = "col-md-2 control-label" })
+                                <div class="col-md-12">
+                                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                                 </div>
+                            </div>
 
-                                <button type="submit" class="btn btn-primary btn-lg btn-block">Giriş</button>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">Giriş</button>
 
 
 
-                                <br/>
+                            <br />
+                            <div class="form-group">
                                 <div class="form-group">
-                                    <div class="form-group">
-                                        <label class="custom-control custom-checkbox">
-                                            @Html.CheckBoxFor(m => m.RememberMe, new { @class = "custom-control-input" })<span class="custom-control-label">Beni Hatırla</span>
-                                        </label>
-                                    </div>
+                                    <label class="custom-control custom-checkbox">
+                                        @Html.CheckBoxFor(m => m.RememberMe, new { @class = "custom-control-input" })<span class="custom-control-label">Beni Hatırla</span>
+                                    </label>
                                 </div>
-                               
-                                <a class="reset_pass" href="#">Şifreni mi kaybettin?</a>
+                            </div>
+
+                            <a class="reset_pass" href="#">Şifreni mi kaybettin?</a>
+                            <div class="clearfix"></div>
+                            <div class="separator">
+                                <p class="change_link">
+
+                                    <a href="#toregister" class="to_register"> Hesap oluştur </a>
+                                </p>
                                 <div class="clearfix"></div>
-                                <div class="separator">
-                                    <p class="change_link">
-                                       
-                                        <a href="#toregister" class="to_register"> Hesap oluştur </a>
-                                    </p>
-                                    <div class="clearfix"></div>
-                                    <br />
+                                <br />
 
-                                </div>
-                            }
-                        </form>
-                            <!-- form -->
-                        </section>
+                            </div>
+                        }
+
+                        <!-- form -->
+                    </section>
                     <!-- content -->
                 </div>
                 <div id="register" class="animate form">
