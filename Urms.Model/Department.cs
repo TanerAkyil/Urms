@@ -8,13 +8,13 @@ namespace Urms.Model
 {
    public  class Department:BaseEntity
     {
-        
-        
 
-        public string DeptCode { get; set; }
 
-        
-        public string DeptName { get; set; }
+
+
+
+         public string DeptCode { get; set; }
+         public string DeptName { get; set; }
 
         public virtual ICollection<Course> Courses { get; set; }
         public virtual ICollection<Teacher> Teachers { get; set; }
