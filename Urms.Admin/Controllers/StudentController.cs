@@ -64,7 +64,7 @@ namespace Urms.Admin.Controllers
                 model.ContactNo = student.ContactNo;
                 model.RegDate = student.RegDate;
                 model.Address = student.Address;
-                model.DeptId = student.DeptId;
+                
                 model.RegNo = student.RegNo;
                 studentService.Update(model);
                 return RedirectToAction("Index");
