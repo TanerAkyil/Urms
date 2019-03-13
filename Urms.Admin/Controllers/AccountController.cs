@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Urms.Admin.Models;
 using Urms.Model;
+using static Urms.Admin.ApplicationSignInManager;
 
 namespace Urms.Admin.Controllers
 {
@@ -18,15 +20,28 @@ namespace Urms.Admin.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ApplicationRoleManager _roleManager;
 
         public AccountController()
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager , ApplicationRoleManager roleManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
+            RoleManager = roleManager;
+        }
+        public ApplicationRoleManager RoleManager
+        {
+            get
+            {
+                return _roleManager ?? HttpContext.GetOwinContext().Get<ApplicationRoleManager>();
+            }
+            private set
+            {
+                _roleManager = value;
+            }
         }
 
         public ApplicationSignInManager SignInManager
@@ -140,15 +155,31 @@ namespace Urms.Admin.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            CreateDefaultRoles();
+            ViewBag.Roles = new SelectList(RoleManager.Roles.ToList(), "Id", "Name");
             return View();
         }
-
+        private void CreateDefaultRoles()
+        {
+            if (!RoleManager.RoleExists("Admin"))
+            {
+                RoleManager.Create(new IdentityRole() { Name = "Admin" });
+            }
+            if (!RoleManager.RoleExists("Student"))
+            {
+                RoleManager.Create(new IdentityRole() { Name = "Student" });
+            }
+            if (!RoleManager.RoleExists("Teacher"))
+            {
+                RoleManager.Create(new IdentityRole() { Name = "Teacher" });
+            }
+        }
         //
         // POST: /Account/Register
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Register(RegisterViewModel model,string RoleId)
         {
             if (ModelState.IsValid)
             {
@@ -156,6 +187,9 @@ namespace Urms.Admin.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+
+                    var role = RoleManager.FindById(RoleId);
+                    UserManager.AddToRole(user.Id, role.Name);
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
@@ -168,7 +202,7 @@ namespace Urms.Admin.Controllers
                 }
                 AddErrors(result);
             }
-
+            ViewBag.Roles = new SelectList(RoleManager.Roles.ToList(), "Id", "Name", RoleId);
             // If we got this far, something failed, redisplay form
             return View(model);
         }
