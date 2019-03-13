@@ -8,6 +8,7 @@ using Urms.Service;
 
 namespace Urms.Admin.Controllers
 {
+    [Authorize]
     public class CourseController : Controller
     {
         private readonly ICourseService courseService;
