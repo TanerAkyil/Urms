@@ -14,12 +14,14 @@ namespace Urms.Admin.Controllers
         private readonly ICourseService courseService;
         private readonly IDepartmentService departmentService;
         private readonly ISemesterService semesterService;
+        private readonly ITeacherService teacherService;
 
-        public CourseController(ICourseService courseService, IDepartmentService departmentService, ISemesterService semesterService)
+        public CourseController(ICourseService courseService, IDepartmentService departmentService, ISemesterService semesterService, ITeacherService teacherService)
         {
             this.courseService = courseService;
             this.departmentService = departmentService;
             this.semesterService = semesterService;
+            this.teacherService = teacherService;
         }
         // GET: Course
         public ActionResult Index()
@@ -29,7 +31,11 @@ namespace Urms.Admin.Controllers
         }
         public ActionResult Create()
         {
+            
             var course = new Course();
+            ViewBag.DeptId = new SelectList(departmentService.GetAll(), "Id", "DeptName");
+            ViewBag.SemesterId = new SelectList(departmentService.GetAll(), "Id", "SemesterName");
+            ViewBag.TeacherId = new SelectList(departmentService.GetAll(), "Id", "TeacherName");
             return View(course);
         }
 
@@ -39,9 +45,13 @@ namespace Urms.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                
                 courseService.Insert(course);
                 return RedirectToAction("Index");
             }
+            ViewBag.DeptId = new SelectList(departmentService.GetAll(), "Id", "DeptName", course.DeptId);
+            ViewBag.SemesterId = new SelectList(departmentService.GetAll(), "Id", "SemesterName", course.SemesterId);
+            ViewBag.TeacherId = new SelectList(departmentService.GetAll(), "Id", "TeacherName", course.TeacherId);
             return View();
         }
         public ActionResult Edit(Guid id)
@@ -51,6 +61,9 @@ namespace Urms.Admin.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.DeptId = new SelectList(departmentService.GetAll(), "Id", "DeptName", course.DeptId);
+            ViewBag.SemesterId = new SelectList(departmentService.GetAll(), "Id", "SemesterName", course.SemesterId);
+            ViewBag.TeacherId = new SelectList(departmentService.GetAll(), "Id", "TeacherName", course.TeacherId);
             return View(course);
 
 
@@ -71,6 +84,9 @@ namespace Urms.Admin.Controllers
                 return RedirectToAction("Index");
 
             }
+            ViewBag.DeptId = new SelectList(departmentService.GetAll(), "Id", "DeptName", course.DeptId);
+            ViewBag.SemesterId = new SelectList(departmentService.GetAll(), "Id", "SemesterName", course.SemesterId);
+            ViewBag.TeacherId = new SelectList(departmentService.GetAll(), "Id", "TeacherName", course.TeacherId);
             return View();
         }
         public ActionResult Delete(Guid id)
