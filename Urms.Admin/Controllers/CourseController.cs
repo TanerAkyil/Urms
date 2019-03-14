@@ -14,14 +14,14 @@ namespace Urms.Admin.Controllers
         private readonly ICourseService courseService;
         private readonly IDepartmentService departmentService;
         private readonly ISemesterService semesterService;
-        private readonly ITeacherService teacherService;
+       
 
-        public CourseController(ICourseService courseService, IDepartmentService departmentService, ISemesterService semesterService, ITeacherService teacherService)
+        public CourseController(ICourseService courseService, IDepartmentService departmentService, ISemesterService semesterService)
         {
             this.courseService = courseService;
             this.departmentService = departmentService;
             this.semesterService = semesterService;
-            this.teacherService = teacherService;
+          
         }
         // GET: Course
         public ActionResult Index()
@@ -34,8 +34,8 @@ namespace Urms.Admin.Controllers
             
             var course = new Course();
             ViewBag.DeptId = new SelectList(departmentService.GetAll(), "Id", "DeptName");
-            ViewBag.SemesterId = new SelectList(departmentService.GetAll(), "Id", "SemesterName");
-            ViewBag.TeacherId = new SelectList(departmentService.GetAll(), "Id", "TeacherName");
+            ViewBag.SemesterId = new SelectList(semesterService.GetAll(), "Id", "SemesterName");
+           
             return View(course);
         }
 
@@ -50,8 +50,8 @@ namespace Urms.Admin.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.DeptId = new SelectList(departmentService.GetAll(), "Id", "DeptName", course.DeptId);
-            ViewBag.SemesterId = new SelectList(departmentService.GetAll(), "Id", "SemesterName", course.SemesterId);
-            ViewBag.TeacherId = new SelectList(departmentService.GetAll(), "Id", "TeacherName", course.TeacherId);
+            ViewBag.SemesterId = new SelectList(semesterService.GetAll(), "Id", "SemesterName", course.SemesterId);
+          
             return View();
         }
         public ActionResult Edit(Guid id)
@@ -62,8 +62,8 @@ namespace Urms.Admin.Controllers
                 return HttpNotFound();
             }
             ViewBag.DeptId = new SelectList(departmentService.GetAll(), "Id", "DeptName", course.DeptId);
-            ViewBag.SemesterId = new SelectList(departmentService.GetAll(), "Id", "SemesterName", course.SemesterId);
-            ViewBag.TeacherId = new SelectList(departmentService.GetAll(), "Id", "TeacherName", course.TeacherId);
+            ViewBag.SemesterId = new SelectList(semesterService.GetAll(), "Id", "SemesterName", course.SemesterId);
+           
             return View(course);
 
 
@@ -85,8 +85,8 @@ namespace Urms.Admin.Controllers
 
             }
             ViewBag.DeptId = new SelectList(departmentService.GetAll(), "Id", "DeptName", course.DeptId);
-            ViewBag.SemesterId = new SelectList(departmentService.GetAll(), "Id", "SemesterName", course.SemesterId);
-            ViewBag.TeacherId = new SelectList(departmentService.GetAll(), "Id", "TeacherName", course.TeacherId);
+            ViewBag.SemesterId = new SelectList(semesterService.GetAll(), "Id", "SemesterName", course.SemesterId);
+         
             return View();
         }
         public ActionResult Delete(Guid id)
