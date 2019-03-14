@@ -31,11 +31,7 @@ namespace Urms.Admin.Controllers
             ViewBag.DeptId = new SelectList(departmentService.GetAll(), "Id", "DeptName");
             return View(students);
         }
-        public ActionResult trmm()
-        {
-            return View();
-        }
-
+      
         [HttpPost]
         [ValidateInput(false)]
         public ActionResult Create(Student student)
