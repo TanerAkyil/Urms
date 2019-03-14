@@ -30,6 +30,8 @@ namespace Urms.Admin.Controllers
         public ActionResult Create()
         {
             var teachers = new Teacher();
+            ViewBag.DesignationId = new SelectList(designationService.GetAll(), "Id", "DesignationName");
+            ViewBag.DeptId = new SelectList(departmentService.GetAll(), "Id", "DeptName");
             return View(teachers);
         }
 
@@ -42,6 +44,8 @@ namespace Urms.Admin.Controllers
                 teacherService.Insert(teacher);
                 return RedirectToAction("Index");
             }
+            ViewBag.DesignationId = new SelectList(designationService.GetAll(), "Id", "DesignationName",teacher.DesignationId);
+            ViewBag.DeptId = new SelectList(departmentService.GetAll(), "Id", "DeptName",teacher.DeptId);
             return View();
         }
         public ActionResult Edit(Guid id)
@@ -51,6 +55,8 @@ namespace Urms.Admin.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.DesignationId = new SelectList(designationService.GetAll(), "Id", "DesignationName", teacher.DesignationId);
+            ViewBag.DeptId = new SelectList(departmentService.GetAll(), "Id", "DeptName", teacher.DeptId);
             return View(teacher);
 
 
@@ -73,6 +79,8 @@ namespace Urms.Admin.Controllers
                 return RedirectToAction("Index");
 
             }
+            ViewBag.DesignationId = new SelectList(designationService.GetAll(), "Id", "DesignationName", teacher.DesignationId);
+            ViewBag.DeptId = new SelectList(departmentService.GetAll(), "Id", "DeptName", teacher.DeptId);
             return View();
         }
         public ActionResult Delete(Guid id)

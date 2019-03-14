@@ -28,6 +28,7 @@ namespace Urms.Admin.Controllers
         public ActionResult Create()
         {
             var students = new Student();
+            ViewBag.DeptId = new SelectList(departmentService.GetAll(), "Id", "DeptName");
             return View(students);
         }
         public ActionResult trmm()
@@ -44,6 +45,7 @@ namespace Urms.Admin.Controllers
                 studentService.Insert(student);
                 return RedirectToAction("Index");
             }
+            ViewBag.DeptId = new SelectList(departmentService.GetAll(), "Id", "DeptName", student.DeptId);
             return View();
         }
         public ActionResult Edit(Guid id)
@@ -53,6 +55,7 @@ namespace Urms.Admin.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.DeptId = new SelectList(departmentService.GetAll(), "Id", "DeptName", student.DeptId);
             return View(student);
 
 
@@ -75,6 +78,7 @@ namespace Urms.Admin.Controllers
                 return RedirectToAction("Index");
 
             }
+            ViewBag.DeptId = new SelectList(departmentService.GetAll(), "Id", "DeptName", student.DeptId);
             return View();
         }
         public ActionResult Delete(Guid id)
