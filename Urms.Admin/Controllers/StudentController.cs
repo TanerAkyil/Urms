@@ -30,6 +30,10 @@ namespace Urms.Admin.Controllers
             var students = new Student();
             return View(students);
         }
+        public ActionResult trmm()
+        {
+            return View();
+        }
 
         [HttpPost]
         [ValidateInput(false)]
