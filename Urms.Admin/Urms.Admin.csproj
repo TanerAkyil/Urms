@@ -539,13 +539,25 @@
     <Content Include="Views\Student\Delete.cshtml" />
     <Content Include="Views\Student\Details.cshtml" />
     <Content Include="Views\Course\Create.cshtml" />
+    <Content Include="Views\CourseAssign\Index.cshtml" />
+    <Content Include="Views\Designation\Index.cshtml" />
+    <Content Include="Views\Designation\Create.cshtml" />
+    <Content Include="Views\Designation\Edit.cshtml" />
+    <Content Include="Views\Designation\Delete.cshtml" />
+    <Content Include="Views\Designation\Details.cshtml" />
+    <Content Include="Views\Result\Index.cshtml" />
+    <Content Include="Views\Result\Create.cshtml" />
+    <Content Include="Views\Result\Edit.cshtml" />
+    <Content Include="Views\Result\Delete.cshtml" />
+    <Content Include="Views\Result\Details.cshtml" />
+    <Content Include="Views\Semester\Index.cshtml" />
+    <Content Include="Views\Semester\Create.cshtml" />
+    <Content Include="Views\Semester\Edit.cshtml" />
+    <Content Include="Views\Semester\Delete.cshtml" />
+    <Content Include="Views\Semester\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\CourseAssign\" />
-    <Folder Include="Views\Designation\" />
-    <Folder Include="Views\Result\" />
-    <Folder Include="Views\Semester\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
