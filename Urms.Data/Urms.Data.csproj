@@ -68,6 +68,10 @@
     <Compile Include="Migrations\201903140913418_InitialCreate.Designer.cs">
       <DependentUpon>201903140913418_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903151145255_Enum.cs" />
+    <Compile Include="Migrations\201903151145255_Enum.Designer.cs">
+      <DependentUpon>201903151145255_Enum.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.cs" />
@@ -86,6 +90,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201903140913418_InitialCreate.resx">
       <DependentUpon>201903140913418_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903151145255_Enum.resx">
+      <DependentUpon>201903151145255_Enum.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -27,5 +27,22 @@ namespace Urms.Model
         public virtual Department Department { get; set; }
         public virtual Semester Semester { get; set; }
         public ICollection<Result> Results { get; set; }
+        public SmsEnum smsEnum { get; set; }
     }
+    public enum SmsEnum
+    {
+        First = 1,
+        Second = 2,
+        Third = 3,
+        Fourth = 4,
+        Fifth = 5,
+        Sixth = 6,
+        Seventh = 7,
+        Eighth = 8,
+        Ninth = 9,
+        Tenth = 10,
+        Eleventh = 11,
+        Twelveth = 12
+    }
+
 }
