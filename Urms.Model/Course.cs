@@ -28,6 +28,7 @@ namespace Urms.Model
         public virtual Semester Semester { get; set; }
         public ICollection<Result> Results { get; set; }
         public SmsEnum smsEnum { get; set; }
+
     }
     public enum SmsEnum
     {

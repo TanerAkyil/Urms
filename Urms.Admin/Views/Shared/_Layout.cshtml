@@ -79,51 +79,35 @@
                                             <a class="nav-link @(ViewContext.RouteData.Values["controller"].ToString() == "Department"?"active":"")" href="@Url.Action("Index","Department")"><i class="fa fa-fw fa-user-circle"></i>Department</a>
                                         </li>
                                         <li class="nav-item ">
-                                            <a class="nav-link @(ViewContext.RouteData.Values["controller"].ToString() == "Student"?"active":"")" href="@Url.Action("Index","Student")"><i class="fa fa-fw fa-user-circle"></i>Student</a>
+                                            <a class="nav-link @(ViewContext.RouteData.Values["controller"].ToString() == "CourseAssign"?"active":"")" href="@Url.Action("Index","CourseAssign")"><i class="fa fa-fw fa-user-circle"></i>CourseAssign</a>
                                         </li>
                                     </ul>
                                 </li>
                                 <li>
                                     <a><i class="fa fa-desktop"></i> UI Elements <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li>
-                                            <a href="general_elements.html">General Elements</a>
+
+                                        <li class="nav-item ">
+                                            <a class="nav-link @(ViewContext.RouteData.Values["controller"].ToString() == "Designation"?"active":"")" href="@Url.Action("Index","Designation")"><i class="fa fa-fw fa-user-circle"></i>Designation</a>
                                         </li>
-                                        <li>
-                                            <a href="media_gallery.html">Media Gallery</a>
+                                        <li class="nav-item ">
+                                            <a class="nav-link @(ViewContext.RouteData.Values["controller"].ToString() == "Result"?"active":"")" href="@Url.Action("Index","Result")"><i class="fa fa-fw fa-user-circle"></i>Result</a>
                                         </li>
-                                        <li>
-                                            <a href="typography.html">Typography</a>
-                                        </li>
-                                        <li>
-                                            <a href="icons.html">Icons</a>
-                                        </li>
-                                        <li>
-                                            <a href="glyphicons.html">Glyphicons</a>
-                                        </li>
-                                        <li>
-                                            <a href="widgets.html">Widgets</a>
-                                        </li>
-                                        <li>
-                                            <a href="invoice.html">Invoice</a>
-                                        </li>
-                                        <li>
-                                            <a href="inbox.html">Inbox</a>
-                                        </li>
-                                        <li>
-                                            <a href="calender.html">Calender</a>
+                                        <li class="nav-item ">
+                                            <a class="nav-link @(ViewContext.RouteData.Values["controller"].ToString() == "Semester"?"active":"")" href="@Url.Action("Index","Semester")"><i class="fa fa-fw fa-user-circle"></i>Semester</a>
                                         </li>
                                     </ul>
                                 </li>
                                 <li>
                                     <a><i class="fa fa-table"></i> Tables <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li>
-                                            <a href="tables.html">Tables</a>
+                                        <li class="nav-item ">
+                                            <a class="nav-link @(ViewContext.RouteData.Values["controller"].ToString() == "ApplicationUser"?"active":"")" href="@Url.Action("Index","ApplicationUser")"><i class="fa fa-fw fa-user-circle"></i>ApplicationUser</a>
                                         </li>
-                                        <li>
-                                            <a href="tables_dynamic.html">Table Dynamic</a>
+                                        <li class="nav-item ">
+                                            <a class="nav-link @(ViewContext.RouteData.Values["controller"].ToString() == "ControllerBase"?"active":"")" href="@Url.Action("Index","ControllerBase")"><i class="fa fa-fw fa-user-circle"></i>ControllerBase</a>
                                         </li>
+                                        
                                     </ul>
                                 </li>
                                 <li>
