@@ -10,7 +10,7 @@ namespace Urms.Admin.Controllers
 {
     [Authorize]
     
-    public class DepartmentController : Controller
+    public class DepartmentController : ControllerBase
     {
         private readonly IDepartmentService departmentService;
         public DepartmentController(IDepartmentService departmentService)

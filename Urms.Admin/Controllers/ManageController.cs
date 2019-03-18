@@ -11,7 +11,7 @@ using Urms.Admin.Models;
 namespace Urms.Admin.Controllers
 {
     [Authorize]
-    public class ManageController : Controller
+    public class ManageController : ControllerBase
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;

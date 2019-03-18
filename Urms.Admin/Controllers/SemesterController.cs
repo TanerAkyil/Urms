@@ -8,7 +8,7 @@ using Urms.Service;
 
 namespace Urms.Admin.Controllers
 {
-    public class SemesterController : Controller
+    public class SemesterController : ControllerBase
     {
         private readonly ISemesterService semesterService;
 

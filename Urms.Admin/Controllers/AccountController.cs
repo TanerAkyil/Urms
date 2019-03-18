@@ -16,14 +16,14 @@ using static Urms.Admin.ApplicationSignInManager;
 namespace Urms.Admin.Controllers
 {
     [Authorize]
-    public class AccountController : Controller
+    public class AccountController : ControllerBase
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
         private ApplicationRoleManager _roleManager;
 
-        public AccountController()
-        {
+        public AccountController() { 
+
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager , ApplicationRoleManager roleManager)

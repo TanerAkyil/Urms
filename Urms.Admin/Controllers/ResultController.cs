@@ -8,7 +8,7 @@ using Urms.Service;
 
 namespace Urms.Admin.Controllers
 {
-    public class ResultController : Controller
+    public class ResultController : ControllerBase
     {
         private readonly ICourseService courseService;
         private readonly IStudentService studentService;

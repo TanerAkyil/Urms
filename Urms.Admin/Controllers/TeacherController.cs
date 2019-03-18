@@ -9,7 +9,7 @@ using Urms.Service;
 namespace Urms.Admin.Controllers
 {
     [Authorize]
-    public class TeacherController : Controller
+    public class TeacherController : ControllerBase
     {
         private readonly IDesignationService designationService;
         private readonly IDepartmentService departmentService;

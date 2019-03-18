@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace Urms.Admin.Controllers
 {
-    public class CourseAssignController : Controller
+    public class CourseAssignController : ControllerBase
     {
         // GET: CourseAssign
         public ActionResult Index()

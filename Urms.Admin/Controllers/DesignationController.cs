@@ -8,7 +8,7 @@ using Urms.Service;
 
 namespace Urms.Admin.Controllers
 {
-    public class DesignationController : Controller
+    public class DesignationController : ControllerBase
     {
         // GET: Designation
         private readonly IDesignationService designationService;
