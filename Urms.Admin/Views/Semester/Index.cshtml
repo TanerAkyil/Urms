@@ -7,7 +7,7 @@
     <h2>Index</h2>
 
     <p>
-        @Html.ActionLink("Create New", "Create")
+        <button type="button" class="btn btn-success"> @Html.ActionLink("Yeni  Kategori Ekle", "Create") </button>
     </p>
     <table class="table">
         <tr>
@@ -20,17 +20,20 @@
 
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SemesterName)
-                </td>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SemesterName)
+            </td>
 
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                </td>
-            </tr>
+
+            <td>
+                <button type="button" class="btn btn-primary">  @Html.ActionLink("Düzenle", "Edit", new { id = item.Id })  </button>
+                <button type="button" class="btn btn-danger"> @Html.ActionLink("Detay", "Details", new { id = item.Id })   </button>
+                <button type="button" class="btn btn-success">  @Html.ActionLink("Sil", "Delete", new { id = item.Id })  </button>
+
+
+            </td>
+        </tr>
         }
 
     </table>
