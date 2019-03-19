@@ -39,10 +39,10 @@ namespace Urms.Model
         public Guid? DeptId { get; set; }
 
         [Range(0.5, double.MaxValue, ErrorMessage = "Creadit can not be less than 0.5")]
-        [Display(Name = "Creadit To Be Taken")]
+        [Display(Name = "Alınan Kredi")]
         [Required(ErrorMessage = "Creadit to be taken by teacher?")]
         public double CreaditToBeTaken { set; get; }
-
+        [Display(Name ="Kalan Kredi")]
         [DefaultValue(0.0)]
         public double RemaingCreadit { get; set; }
 
