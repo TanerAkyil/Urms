@@ -25,6 +25,18 @@ namespace Urms.Model
         [Required(ErrorMessage = " Lütfen Not Seçiniz")]
         public string Grade { get; set; }
 
+        [Display(Name ="Vize")]
+        [Required(ErrorMessage ="Lütfen vize notunu giriniz")]
+        public string Visa { get; set; }
+
+        [Display(Name = "Final")]
+        [Required(ErrorMessage = "Lütfen final notunu giriniz")]
+        public string Final { get; set; }
+
+        [Display(Name = "Bütünleme")]
+        [Required(ErrorMessage = "Lütfen bütünleme notunu giriniz")]
+        public string ResitExam { get; set; }
+
 
         public virtual Student Student { get; set; }
 
