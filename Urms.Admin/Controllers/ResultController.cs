@@ -29,11 +29,11 @@ namespace Urms.Admin.Controllers
         public ActionResult Create()
         {
 
-            var result = new Result();
-            ViewBag.CourseId = new SelectList(resultService.GetAll(), "Id", "CourseName");
-            ViewBag.StudentId = new SelectList(resultService.GetAll(), "Id", "StudentName");
+            var results = new Result();
+            ViewBag.CourseId = new SelectList(courseService.GetAll(), "Id", "CourseName",results.CourseId);
+            ViewBag.StudentId = new SelectList(studentService.GetAll(), "Id", "StudentName",results.StudentId);
 
-            return View(result);
+            return View(results);
         }
 
         [HttpPost]
@@ -46,10 +46,10 @@ namespace Urms.Admin.Controllers
                 resultService.Insert(result);
                 return RedirectToAction("Index");
             }
-            ViewBag.CourseId = new SelectList(resultService.GetAll(), "Id", "CourseName",result.CourseId);
-            ViewBag.StudentId = new SelectList(resultService.GetAll(), "Id", "StudentName",result.StudentId);
+            ViewBag.CourseId = new SelectList(courseService.GetAll(), "Id", "CourseName", result.CourseId);
+            ViewBag.StudentId = new SelectList(studentService.GetAll(), "Id", "StudentName", result.StudentId);
 
-            return View();
+            return View(result);
         }
         public ActionResult Edit(Guid id)
         {
@@ -58,8 +58,8 @@ namespace Urms.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.CourseId = new SelectList(resultService.GetAll(), "Id", "CourseName", result.CourseId);
-            ViewBag.StudentId = new SelectList(resultService.GetAll(), "Id", "StudentName", result.StudentId);
+            ViewBag.CourseId = new SelectList(courseService.GetAll(), "Id", "CourseName", result.CourseId);
+            ViewBag.StudentId = new SelectList(studentService.GetAll(), "Id", "StudentName", result.StudentId);
 
             return View(result);
 
@@ -73,14 +73,16 @@ namespace Urms.Admin.Controllers
             {
                 var model = resultService.Find(result.Id);
                 model.Grade = result.Grade;
+                model.CourseId = result.CourseId;
+                model.StudentId = result.StudentId;
                 resultService.Update(model);
                 return RedirectToAction("Index");
 
             }
-            ViewBag.CourseId = new SelectList(resultService.GetAll(), "Id", "CourseName", result.CourseId);
-            ViewBag.StudentId = new SelectList(resultService.GetAll(), "Id", "StudentName", result.StudentId);
+            ViewBag.CourseId = new SelectList(courseService.GetAll(), "Id", "CourseName", result.CourseId);
+            ViewBag.StudentId = new SelectList(studentService.GetAll(), "Id", "StudentName", result.StudentId);
 
-            return View();
+            return View(result);
         }
         public ActionResult Delete(Guid id)
         {

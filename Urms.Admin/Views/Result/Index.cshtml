@@ -7,7 +7,7 @@
     <h2>Index</h2>
 
     <p>
-        <button type="button" class="btn btn-success"> @Html.ActionLink("Yeni  Kategori Ekle", "Create") </button>
+        @Html.ActionLink("Create New", "Create")
     </p>
     <table class="table">
         <tr>
@@ -19,6 +19,15 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Grade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Visa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Final)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ResitExam)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.CreatedBy)
@@ -40,40 +49,46 @@
 
         @foreach (var item in Model)
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Course.CourseCode)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Student.StudentName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Grade)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UpdatedBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UpdatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsActive)
-            </td>
-
-            <td>
-                <button type="button" class="btn btn-primary">  @Html.ActionLink("Düzenle", "Edit", new { id = item.Id })  </button>
-                <button type="button" class="btn btn-danger"> @Html.ActionLink("Detay", "Details", new { id = item.Id })   </button>
-                <button type="button" class="btn btn-success">  @Html.ActionLink("Sil", "Delete", new { id = item.Id })  </button>
-
-
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Course.CourseCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Student.StudentName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Grade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Visa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Final)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ResitExam)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedBy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedAt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UpdatedBy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UpdatedAt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsActive)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
         }
 
     </table>
