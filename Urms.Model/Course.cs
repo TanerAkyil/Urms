@@ -9,6 +9,11 @@ namespace Urms.Model
 {
     public class Course:BaseEntity
     {
+
+        public Course()
+        {
+            Results = new HashSet<Result>();
+        }
         [Display(Name = "Ders Kodu")]
         public string CourseCode { get; set; }
         [Display(Name = "Ders Adı  ")]

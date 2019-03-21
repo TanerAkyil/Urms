@@ -10,7 +10,10 @@ namespace Urms.Model
 {
     public class Teacher:BaseEntity
     {
-        
+        public Teacher()
+        {
+            Courses = new HashSet<Course>();
+        }
         
 
         [Display(Name = "Akademisyen Adı")]

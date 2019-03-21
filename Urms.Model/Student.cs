@@ -10,7 +10,11 @@ namespace Urms.Model
     public class Student:BaseEntity
     {
         
-       
+       public Student()
+        {
+            Results = new HashSet<Result>();
+            
+        }
 
         [Required(ErrorMessage = "Öğrenci adı gerekli")]
         [Display(Name = "Öğrenci  Adı")]

@@ -27,11 +27,14 @@ namespace Urms.Model
 
         [Display(Name ="Vize")]
         [Required(ErrorMessage ="Lütfen vize notunu giriniz")]
-        public string Visa { get; set; }
+        public double Visa { get; set; }
 
         [Display(Name = "Final")]
         [Required(ErrorMessage = "Lütfen final notunu giriniz")]
-        public string Final { get; set; }
+        public double Final { get; set; }
+
+        [Display(Name ="Sonuc")]
+        public double Res { get { return (Visa * (0.4)) + (Final * (0.6)); } }
 
         [Display(Name = "Bütünleme")]
         [Required(ErrorMessage = "Lütfen bütünleme notunu giriniz")]

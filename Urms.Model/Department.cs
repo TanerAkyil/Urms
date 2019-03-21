@@ -9,7 +9,12 @@ namespace Urms.Model
 {
    public  class Department:BaseEntity
     {
-
+        public Department()
+        {
+            Courses = new HashSet<Course>();
+            Teachers = new HashSet<Teacher>();
+            Students = new HashSet<Student>();
+        }
 
 
 

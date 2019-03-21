@@ -10,7 +10,10 @@ namespace Urms.Model
   public  class Designation:BaseEntity
     {
        
-        
+        public Designation()
+        {
+            Teachers = new HashSet<Teacher>();
+        }
 
         [Display(Name = "Unvan Adı")]
         public string DesignationName { get; set; }
