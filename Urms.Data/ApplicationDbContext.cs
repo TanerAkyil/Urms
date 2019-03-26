@@ -43,5 +43,7 @@ namespace Urms.Data
             new StudentBuilder(modelBuilder.Entity<Student>());
             new TeacherBuilder(modelBuilder.Entity<Teacher>());
         }
+
+       
     }
 }

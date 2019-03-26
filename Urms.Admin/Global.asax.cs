@@ -13,6 +13,7 @@ using System.Web.Routing;
 using Urms.Data;
 using Urms.Model;
 using Urms.Service;
+using static Urms.Admin.ApplicationSignInManager;
 
 namespace Urms.Admin
 {
@@ -66,7 +67,7 @@ namespace Urms.Admin
             builder.RegisterType<ApplicationSignInManager>().AsSelf().InstancePerRequest();
             builder.Register(c => new UserStore<ApplicationUser>(c.Resolve<ApplicationDbContext>())).AsImplementedInterfaces().InstancePerRequest();
             builder.Register(c => new RoleStore<IdentityRole>(c.Resolve<ApplicationDbContext>())).InstancePerRequest();
-           /* builder.RegisterType<ApplicationRoleManager>().AsSelf().InstancePerRequest();*/
+            builder.RegisterType<ApplicationRoleManager>().AsSelf().InstancePerRequest();
             builder.Register(c => HttpContext.Current.GetOwinContext().Authentication).As<IAuthenticationManager>();
             builder.Register(c => new IdentityFactoryOptions<ApplicationUserManager>
             {
