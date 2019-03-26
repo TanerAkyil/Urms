@@ -8,7 +8,7 @@ using Urms.Service;
 
 namespace Urms.Admin.Controllers
 {
-    [Authorize]
+    [Authorize(Roles ="Admin,Teacher")]
     public class TeacherController : ControllerBase
     {
         private readonly IDesignationService designationService;
