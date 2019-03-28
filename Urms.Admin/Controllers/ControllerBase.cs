@@ -19,7 +19,7 @@ namespace Urms.Admin.Controllers
         protected override void OnActionExecuted(ActionExecutedContext filterContext)
         {
           
-            ViewBag.AssetsUrl = ConfigurationManager.AppSettings["assetsUrl"];
+            ViewBag.photo = ConfigurationManager.AppSettings["~/Upload"];
             base.OnActionExecuted(filterContext);
         }
     }

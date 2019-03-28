@@ -562,7 +562,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Updates\" />
     <Folder Include="Upload\" />
     <Folder Include="Views\ControllerBase\" />
   </ItemGroup>

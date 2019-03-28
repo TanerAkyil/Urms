@@ -40,7 +40,8 @@
                     @Html.HiddenFor(model => model.Photo)
                     @if (!string.IsNullOrEmpty(Model.Photo))
                     {
-                        <img src="@(ViewBag.AssetsUrl)@Model.Photo" style="width:300px;" /><br />
+                        <img src="/Upload/@Model.Photo" style="width:300px;" /> <br/>
+                        
                     }
                     <input type="file" name="upload" />
                     @Html.ValidationMessageFor(model => model.Photo, "", new { @class = "text-danger" })

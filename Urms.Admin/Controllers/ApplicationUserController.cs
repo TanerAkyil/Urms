@@ -107,7 +107,7 @@ namespace Urms.Admin.Controllers
                     }
                     model.FullName = user.FullName;
                     model.Email = user.Email;
-                    model.Photo = user.Photo;
+                    
                     UserManager.Update(model);
 
                     var oldRoles = model.Roles.Select(r => r.RoleId).ToList();
@@ -118,10 +118,10 @@ namespace Urms.Admin.Controllers
 
                     return RedirectToAction("Index");
                 }
-                ViewBag.Roles = _roleManager.Roles.ToList();
+               
 
-              
             }
+            ViewBag.Roles = _roleManager.Roles.ToList();
             return View();
         }
     }
