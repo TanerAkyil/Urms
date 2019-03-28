@@ -21,6 +21,7 @@ namespace Urms.Model
         [Display(Name = " Ders Kredisi")]
         public double Credit { get; set; }
         [Display(Name = "Ders Acıklaması")]
+        [DataType(DataType.MultilineText)]
         public string Description { get; set; }
         [Display(Name = "Hangi Bölüm No")]
         public Guid? DeptId { get; set; }

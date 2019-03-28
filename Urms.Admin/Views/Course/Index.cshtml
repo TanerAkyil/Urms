@@ -25,7 +25,7 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Description)
                 </th>
-
+                
                 <th></th>
             </tr>
         </thead>
@@ -37,13 +37,8 @@
             <tr>
                 <td>@item.CourseCode</td>
                 <td><a href="@Url.Action("Edit",new { id = item.Id })">@item.CourseName</a></td>
-                <td>@item.Description</td>
-
-
-            
-                   
-                   
-                   
+                <td>@Html.Raw(item.Description)</td>
+          
                 <td>
                     <a href="@Url.Action("Edit", new { id = item.Id})" class="btn btn-primary btn-xs">Düzenle</a>
                     <a href="@Url.Action("Delete", new { id = item.Id})" class="btn btn-danger btn-xs">Sil</a>
