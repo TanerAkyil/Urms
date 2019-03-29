@@ -58,8 +58,9 @@
                 @Html.DisplayFor(modelItem => item.RegDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
+               
+            <td>@Html.Raw(item.Address)</td>
+           
             <td>
                 @Html.DisplayFor(modelItem => item.RegNo)
             </td>

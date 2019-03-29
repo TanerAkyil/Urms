@@ -36,6 +36,7 @@ namespace Urms.Model
         [Display(Name = "Adres")]
         [DataType(DataType.MultilineText)]
         [Required(ErrorMessage = "Öğrenci adresi gerekli")]
+       
         public string Address { get; set; }
 
         [Display(Name = "Bölüm")]
