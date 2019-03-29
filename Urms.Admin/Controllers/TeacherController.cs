@@ -15,7 +15,7 @@ namespace Urms.Admin.Controllers
         private readonly IDepartmentService departmentService;
         private readonly ITeacherService teacherService;
 
-        public TeacherController(IDesignationService designationService, IDepartmentService departmentService, ITeacherService teacherService)
+        public TeacherController(IDesignationService designationService, IDepartmentService departmentService, ITeacherService teacherService, ApplicationUserManager userManager):base(userManager)
         {
             this.designationService = designationService;
             this.departmentService = departmentService;

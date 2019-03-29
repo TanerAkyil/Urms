@@ -16,7 +16,7 @@ namespace Urms.Admin.Controllers
         private readonly ISemesterService semesterService;
        
 
-        public CourseController(ICourseService courseService, IDepartmentService departmentService, ISemesterService semesterService)
+        public CourseController(ICourseService courseService, IDepartmentService departmentService, ISemesterService semesterService, ApplicationUserManager userManager) : base(userManager)
         {
             this.courseService = courseService;
             this.departmentService = departmentService;

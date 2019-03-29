@@ -12,7 +12,7 @@ namespace Urms.Admin.Controllers
     {
         // GET: Designation
         private readonly IDesignationService designationService;
-        public DesignationController(IDesignationService designationService)
+        public DesignationController(IDesignationService designationService, ApplicationUserManager userManager) : base(userManager)
         {
             this.designationService = designationService;
         }

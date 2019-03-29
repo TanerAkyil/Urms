@@ -14,7 +14,7 @@ namespace Urms.Admin.Controllers
         private readonly IStudentService studentService;
         private readonly IResultService resultService;
 
-        public ResultController(ICourseService courseService, IStudentService studentService, IResultService resultService)
+        public ResultController(ICourseService courseService, IStudentService studentService, IResultService resultService, ApplicationUserManager userMananager) : base(userMananager)
         {
             this.courseService = courseService;
             this.studentService = studentService;

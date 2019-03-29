@@ -9,8 +9,13 @@ namespace Urms.Admin.Controllers
     [Authorize]
     public class HomeController : ControllerBase
     {
+        public HomeController(ApplicationUserManager userManager) : base(userManager)
+        {
+
+        }
         public ActionResult Index()
         {
+            var s = User.Identity.Name;
             return View();
         }
 

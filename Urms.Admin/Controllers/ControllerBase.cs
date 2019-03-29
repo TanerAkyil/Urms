@@ -9,7 +9,11 @@ namespace Urms.Admin.Controllers
 {
     public class ControllerBase : Controller
     {
-  
+        public ApplicationUserManager userManager;
+        public ControllerBase(ApplicationUserManager userManager)
+        {
+            this.userManager = userManager;
+        }
         // bu metot tüm actionlardan önce çalışır
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
@@ -18,8 +22,11 @@ namespace Urms.Admin.Controllers
         // bu metot tüm actionlardan sonra çalışır
         protected override void OnActionExecuted(ActionExecutedContext filterContext)
         {
-          
-            ViewBag.photo = ConfigurationManager.AppSettings["~/Upload"];
+            //if (filterContext.Controller.ControllerContext.RouteData.Values["controller"].ToString().ToLower() != "account") { 
+                var userName = filterContext.HttpContext.User.Identity.Name;
+                var user = userManager.FindByNameAsync(userName).Result;
+                ViewBag.photo = "/Upload/" + user.Photo;
+            //}
             base.OnActionExecuted(filterContext);
         }
     }

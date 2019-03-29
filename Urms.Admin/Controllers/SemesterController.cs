@@ -12,7 +12,7 @@ namespace Urms.Admin.Controllers
     {
         private readonly ISemesterService semesterService;
 
-        public SemesterController(ISemesterService semesterService)
+        public SemesterController(ISemesterService semesterService, ApplicationUserManager userManager) : base(userManager)
         {
             this.semesterService = semesterService;
         }

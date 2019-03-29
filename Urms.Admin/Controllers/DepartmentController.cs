@@ -13,7 +13,7 @@ namespace Urms.Admin.Controllers
     public class DepartmentController : ControllerBase
     {
         private readonly IDepartmentService departmentService;
-        public DepartmentController(IDepartmentService departmentService)
+        public DepartmentController(IDepartmentService departmentService, ApplicationUserManager userManager) : base(userManager)
         {
             this.departmentService = departmentService;
         }

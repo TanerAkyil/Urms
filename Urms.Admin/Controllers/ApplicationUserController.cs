@@ -19,7 +19,7 @@ namespace Urms.Admin.Controllers
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
         private ApplicationRoleManager _roleManager;
-        public ApplicationUserController(ApplicationUserManager userManager, ApplicationSignInManager signInManager, ApplicationRoleManager roleManager)
+        public ApplicationUserController(ApplicationUserManager userManager, ApplicationSignInManager signInManager, ApplicationRoleManager roleManager):base(userManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
