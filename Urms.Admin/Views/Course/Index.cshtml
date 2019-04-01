@@ -38,15 +38,19 @@
                 <td>@item.CourseCode</td>
                 <td><a href="@Url.Action("Edit",new { id = item.Id })">@item.CourseName</a></td>
                 <td>@Html.Raw(item.Description)</td>
-          
+
+               
+
                 <td>
-                    <a href="@Url.Action("Edit", new { id = item.Id})" class="btn btn-primary btn-xs">Düzenle</a>
-                    <a href="@Url.Action("Delete", new { id = item.Id})" class="btn btn-danger btn-xs">Sil</a>
-                    <a href="@Url.Action("Details", new { id = item.Id})" class="btn btn-success btn-xs">Detaylar</a>
+                    <a href="@Url.Action("Edit", new { id = item.Id})" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Düzenle </a>
+                    <a href="@Url.Action("Delete", new { id = item.Id})" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Sil </a>
+                    <a href="@Url.Action("Details", new { id = item.Id})" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> Detaylar </a>
 
 
                 </td>
+
                
+
             </tr>
 
             }
