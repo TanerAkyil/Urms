@@ -26,6 +26,7 @@ namespace Urms.Admin.Controllers
                 var userName = filterContext.HttpContext.User.Identity.Name;
                 var user = userManager.FindByNameAsync(userName).Result;
                 ViewBag.photo = "/Upload/" + user.Photo;
+                ViewBag.user = user;
             //}
             base.OnActionExecuted(filterContext);
         }
