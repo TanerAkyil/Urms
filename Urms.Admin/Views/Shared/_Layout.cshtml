@@ -45,7 +45,7 @@
                         </div>
                         <div class="profile_info">
                             <span>Hoşgeldiniz</span>
-                            <h2>"@ViewBag.User"</h2>
+                            <h2>@ViewBag.UserNam</h2>
                         </div>
                     </div>
                     <!-- /menu prile quick info -->
@@ -159,7 +159,7 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li class="">
                                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                    <img src="@(ViewBag.photo ?? "Foto")" alt="">john doe
+                                    <img src="@(ViewBag.photo ?? "Foto")" alt="">@ViewBag.UserNam
                                     <span class=" fa fa-angle-down"></span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
