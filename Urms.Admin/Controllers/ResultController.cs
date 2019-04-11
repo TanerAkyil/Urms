@@ -8,8 +8,10 @@ using Urms.Service;
 
 namespace Urms.Admin.Controllers
 {
+    [Authorize(Roles = "Admin,Student,Teacher")]
     public class ResultController : ControllerBase
     {
+
         private readonly ICourseService courseService;
         private readonly IStudentService studentService;
         private readonly IResultService resultService;

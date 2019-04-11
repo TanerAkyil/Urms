@@ -8,8 +8,8 @@ using Urms.Service;
 
 namespace Urms.Admin.Controllers
 {
-    [Authorize]
-    
+    [Authorize(Roles = "Admin")]
+
     public class DepartmentController : ControllerBase
     {
         private readonly IDepartmentService departmentService;

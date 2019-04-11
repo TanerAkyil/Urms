@@ -30,14 +30,15 @@
                     @Html.ValidationMessageFor(model => model.CourseId, "", new { @class = "text-danger" })
                 </div>
             </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Grade, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="form-group">
+                @Html.LabelFor(model => model.Grade,"Not Bilgisi", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.Grade, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Grade, "", new { @class = "text-danger" })
                 </div>
             </div>
+
+        
 
             <div class="form-group">
                 @Html.LabelFor(model => model.Visa, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -62,6 +63,14 @@
                     @Html.ValidationMessageFor(model => model.ResitExam, "", new { @class = "text-danger" })
                 </div>
             </div>
+        
+            <div class="form-group">
+                @Html.LabelFor(model => model.graduate, "Harf Notu", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EnumDropDownListFor(model => model.graduate, "Lütfen dönem seçiniz", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.graduate, "", new { @class = "text-danger" })
+                </div>
+            </div>
 
            
 
@@ -69,14 +78,14 @@
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Oluştur" class="btn btn-default" />
+                    <input type="submit" value="Create" class="btn btn-default" />
                 </div>
             </div>
         </div>
     }
 
     <div>
-        @Html.ActionLink("Geri Dön", "Index")
+        @Html.ActionLink("Back to List", "Index")
     </div>
 
     @section Scripts {

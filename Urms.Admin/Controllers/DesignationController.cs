@@ -8,6 +8,7 @@ using Urms.Service;
 
 namespace Urms.Admin.Controllers
 {
+    [Authorize(Roles = "Admin,Teacher")]
     public class DesignationController : ControllerBase
     {
         // GET: Designation

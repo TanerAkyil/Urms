@@ -8,7 +8,7 @@ using Urms.Service;
 
 namespace Urms.Admin.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class CourseController : ControllerBase
     {
         private readonly ICourseService courseService;

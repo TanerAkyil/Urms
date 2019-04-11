@@ -44,5 +44,19 @@ namespace Urms.Model
         public virtual Student Student { get; set; }
 
         public virtual Course Course { get; set; }
+
+        public Graduate graduate { get; set; }
     }
+    public enum Graduate
+        {
+            AA = 1,
+            BA = 2,
+            BB = 3,
+            CB = 4,
+            CC = 5,
+            DC = 6,
+            DD = 7,
+            FF = 8
+        }
+    
 }
