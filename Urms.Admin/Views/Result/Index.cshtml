@@ -19,10 +19,13 @@
                 @Html.DisplayNameFor(model => model.Student.StudentName)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.graduate)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Grade)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Visa) 
+                @Html.DisplayNameFor(model => model.Visa)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Final)
@@ -33,7 +36,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.ResitExam)
             </th>
-           
+
             <th></th>
         </tr>
 
@@ -48,20 +51,23 @@
                 @Html.DisplayFor(modelItem => item.Student.StudentName)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.graduate)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Grade)
             </td>
 
-            
+
             <td>
-            
+
                 @Html.DisplayFor(modelItem => item.Visa)
-              
+
             </td>
-            
+
             <td>
-              
+
                 @Html.DisplayFor(modelItem => item.Final)
-              
+
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Res)

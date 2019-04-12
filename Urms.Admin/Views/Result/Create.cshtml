@@ -67,7 +67,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.graduate, "Harf Notu", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EnumDropDownListFor(model => model.graduate, "Lütfen dönem seçiniz", new { @class = "form-control" })
+                    @Html.EnumDropDownListFor(model => model.graduate, "Lütfen Harf Notu  seçiniz", new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.graduate, "", new { @class = "text-danger" })
                 </div>
             </div>
